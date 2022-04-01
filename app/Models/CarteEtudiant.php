@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CarteEtudiant extends Model
 {
     use HasFactory;
+
+    /*
+    public function user()
+    {
+        return $this->belongsTo(Post::class);
+    }
+    */
 }

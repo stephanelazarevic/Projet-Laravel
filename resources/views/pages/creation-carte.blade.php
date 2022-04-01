@@ -19,6 +19,7 @@ Utilisez une adresse email permanente pour recevoir vos courriels
                 <label for="nomEtudiantFormulaire">Nom étudiant:</label>
                 <input type="text" class="form-control" name="nomEtudiantFormulaire">
             </div>
+            <div><br></div>
 
             <div class="col-span-6 sm:col-span-3">
                 <label for="prenomEtudiantFormulaire">Prénom étudiant:</label>
@@ -37,7 +38,25 @@ Utilisez une adresse email permanente pour recevoir vos courriels
 
             <div class="col-span-6 sm:col-span-4">
                 <label for="tel">Tel:</label>
-                <input type="text" class="form-control" name="tel">
+                <input type="tel" class="form-control" name="tel">
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+                <label>
+                Section:
+                <select name="section">
+                    <option value="--">--</option>
+                    <option value="SLAM">SLAM</option>
+                    <option value="SISR">SISR</option>
+                </select>
+                </label>
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+                <label for="fichier">
+                Fichier:
+                </label>
+                <input type="file" name="fichier">
             </div>
 
 

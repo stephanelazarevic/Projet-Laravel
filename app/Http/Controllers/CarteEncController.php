@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\CarteEtudiant;
 use Illuminate\Http\Request;
+use function Symfony\Component\Mime\Header\get;
 
 class CarteEncController extends Controller
 {
@@ -41,6 +42,11 @@ class CarteEncController extends Controller
         $carteEtudiant = new CarteEtudiant();
         $carteEtudiant->nomEtudiant = $request->get('nomEtudiantFormulaire');
 
+        $nomFichierAttache = time().request()->fichier->getClientOriginalName();
+
+        //dd($nomFichierAttache) ;
+        $request->fichier->storeAs('public', $nomFichierAttache);
+
         /***
          * A COMPLETER POUR LE PRENOM ET L'EMAIL
          */
@@ -48,10 +54,14 @@ class CarteEncController extends Controller
         $carteEtudiant->email = $request->get('email');
         $carteEtudiant->date = $request->get('date');
         $carteEtudiant->tel = $request->get('tel');
+        $carteEtudiant->section = $request->get('section');
+        $carteEtudiant->fichier = $nomFichierAttache;
+
 
         // Enregistrement dans la base de données
 
         $carteEtudiant->save();
+        //Auth::user()->carte()->save($carteEtudiant);
 
         // redirection vers le dashboard
 
@@ -79,6 +89,8 @@ class CarteEncController extends Controller
     public function edit($id)
     {
         //
+        $carteEtudiant = \App\Models\CarteEtudiant::find($id);
+        return view('pages.edit', compact('carteEtudiant', 'id'));
     }
 
     /**
@@ -91,6 +103,15 @@ class CarteEncController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $carteEtudiant = \App\Models\CarteEtudiant::find($id);
+        $carteEtudiant->nomEtudiant = $request->get('nomEtudiant');
+        $carteEtudiant->prenomEtudiant = $request->get('prenomEtudiant');
+        $carteEtudiant->email = $request->get('email');
+        $carteEtudiant->date = $request->get('date');
+        $carteEtudiant->tel = $request->get('tel');
+        $carteEtudiant->section = $request->get('section');
+
+        return redirect('demandeCarte');
     }
 
     /**
@@ -102,5 +123,8 @@ class CarteEncController extends Controller
     public function destroy($id)
     {
         //
+        $carteEtudiant = \App\Models\CarteEtudiant::find($id);
+        $carteEtudiant->delete();
+        return redirect('demandeCarte');
     }
 }
