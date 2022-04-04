@@ -9,10 +9,10 @@ class CarteEtudiant extends Model
 {
     use HasFactory;
 
-    /*
+
     public function user()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
-    */
+
 }

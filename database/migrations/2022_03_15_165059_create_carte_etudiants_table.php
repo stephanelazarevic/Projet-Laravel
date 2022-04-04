@@ -15,7 +15,7 @@ class CreateCarteEtudiantsTable extends Migration
     {
         Schema::create('carte_etudiants', function (Blueprint $table) {
             $table->id();
-          //$table->foreignId('user_id');
+            $table->foreignId('user_id');
             $table->string('nomEtudiant');
             $table->string('prenomEtudiant');
             $table->string('email')->unique();

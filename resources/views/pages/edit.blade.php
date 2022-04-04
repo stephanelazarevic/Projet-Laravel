@@ -18,13 +18,13 @@
                             <div class="grid grid-cols-6 gap-6">
 
                                 <div class="col-span-6 sm:col-span-3">
-                            <label for="nomEtudiantFormulaire">Nom étudiant:</label>
-                            <input type="text" class="form-control" name="nomEtudiantFormulaire" value="{{$carteEtudiant->nomEtudiant}}">
+                            <label for="nomEtudiant">Nom étudiant:</label>
+                            <input type="text" class="form-control" name="nomEtudiant" value="{{$carteEtudiant->nomEtudiant}}">
                     </div><br>
 
                                 <div class="col-span-6 sm:col-span-3">
-                            <label for="prenomEtudiantFormulaire">Prenom étudiant:</label>
-                            <input type="text" class="form-control" name="prenomEtudiantFormulaire" value="{{$carteEtudiant->prenomEtudiant}}">
+                            <label for="prenomEtudiant">Prenom étudiant:</label>
+                            <input type="text" class="form-control" name="prenomEtudiant" value="{{$carteEtudiant->prenomEtudiant}}">
                                 </div><br>
 
                                 <div class="col-span-6 sm:col-span-3">
@@ -46,11 +46,19 @@
                             <label>
                                 Section :
                                 <select name="section">
+                                    <option value="SLAM">--</option>
                                     <option value="SLAM">SLAM</option>
                                     <option value="SISR">SISR</option>
                                 </select>
                             </label>
-                    </div>
+                    </div><br>
+
+                                <div class="col-span-6 sm:col-span-4">
+                                    <label for="fichier">
+                                        <span style="color:red;">*</span> Fichier:
+                                    </label>
+                                    <input type="file" name="fichier">
+                                </div><br><br>
 
                                 <div class="col-span-6 sm:col-span-3">
                             <button type="submit"><a style="color:limegreen;">Update</a></button>

@@ -35,7 +35,7 @@
                     <td class="border px-6 py-4">{{$carteEtudiant['section']}}</td>
                     <td class="border px-6 py-4">{{$carteEtudiant['fichier']}}</td>
                     <td class="border px-6 py-4">
-                        <a style="color:limegreen;" href="{{action('App\Http\Controllers\CarteEncController@edit', $carteEtudiant['id'])}}">Modifier</a>
+                        <a style="color:limegreen;" href="{{action('App\Http\Controllers\CarteEncController@edit', $carteEtudiant['id'])}}">Modifier</a><br>
                         <a style="color:#ff0000;" href="{{action('App\Http\Controllers\CarteEncController@destroy', $carteEtudiant['id'])}}">Supprimer</a>
                     </td>
 

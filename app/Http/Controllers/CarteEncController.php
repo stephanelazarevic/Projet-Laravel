@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\CarteEtudiant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use function Symfony\Component\Mime\Header\get;
 
 class CarteEncController extends Controller
@@ -14,8 +15,8 @@ class CarteEncController extends Controller
      */
     public function index()
     {
-        //
         $cartesEtudiant = CarteEtudiant::all();
+        // $cartesEtudiant = Auth::user()->carte;
         return view('pages.index', compact('cartesEtudiant'));
     }
 
@@ -60,8 +61,8 @@ class CarteEncController extends Controller
 
         // Enregistrement dans la base de données
 
-        $carteEtudiant->save();
-        //Auth::user()->carte()->save($carteEtudiant);
+        //$carteEtudiant->save();
+        Auth::user()->carte()->save($carteEtudiant);
 
         // redirection vers le dashboard
 
@@ -110,6 +111,8 @@ class CarteEncController extends Controller
         $carteEtudiant->date = $request->get('date');
         $carteEtudiant->tel = $request->get('tel');
         $carteEtudiant->section = $request->get('section');
+        $carteEtudiant->fichier = $request->get('fichier');
+        $carteEtudiant->save();
 
         return redirect('demandeCarte');
     }
@@ -125,6 +128,6 @@ class CarteEncController extends Controller
         //
         $carteEtudiant = \App\Models\CarteEtudiant::find($id);
         $carteEtudiant->delete();
-        return redirect('demandeCarte');
+        return redirect('demandeCarte')->with('success', 'Demande de carte supprimée');
     }
 }

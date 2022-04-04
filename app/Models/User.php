@@ -59,9 +59,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    /*
-     * public function carte(){
-        return $this->hasMany(Post::class);
+    public function carte(){
+        return $this->hasMany('App\Models\CarteEtudiant');
     }
-    */
+
 }
