@@ -3,6 +3,7 @@
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
                 <div class="px-4 sm:px-0">
+                    <br>
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Informations personnelles</h3>
                     <p class="mt-1 text-sm text-gray-600">
                         Utilisez une adresse email permanente pour recevoir vos courriels
@@ -18,28 +19,28 @@
                             <div class="grid grid-cols-6 gap-6">
 
                                 <div class="col-span-6 sm:col-span-3">
-                            <label for="nomEtudiant">Nom étudiant:</label>
-                            <input type="text" class="form-control" name="nomEtudiant" value="{{$carteEtudiant->nomEtudiant}}">
+                            <label for="nomEtudiant"> <span style="color:red;">*</span> Nom étudiant:</label>
+                            <input required="required" type="text" class="form-control" name="nomEtudiant" value="{{$carteEtudiant->nomEtudiant}}">
                     </div><br>
 
                                 <div class="col-span-6 sm:col-span-3">
-                            <label for="prenomEtudiant">Prenom étudiant:</label>
-                            <input type="text" class="form-control" name="prenomEtudiant" value="{{$carteEtudiant->prenomEtudiant}}">
+                            <label for="prenomEtudiant"> <span style="color:red;">*</span> Prenom étudiant:</label>
+                            <input required="required" type="text" class="form-control" name="prenomEtudiant" value="{{$carteEtudiant->prenomEtudiant}}">
                                 </div><br>
 
                                 <div class="col-span-6 sm:col-span-3">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control" name="email" value="{{$carteEtudiant->email}}">
+                            <label for="email"> <span style="color:red;">*</span> Email</label>
+                            <input required="required" type="text" class="form-control" name="email" value="{{$carteEtudiant->email}}">
                     </div><br>
 
                                 <div class="col-span-6 sm:col-span-3">
-                            <label for="date">Date:</label>
-                            <input type="date" class="form-control" name="date" value="{{$carteEtudiant->date}}">
+                            <label for="date"> <span style="color:red;">*</span> Date:</label>
+                            <input required="required" type="date" class="form-control" name="date" value="{{$carteEtudiant->date}}">
                     </div><br>
 
                                 <div class="col-span-6 sm:col-span-3">
-                            <label for="tel">Tel:</label>
-                            <input type="tel" class="form-control" name="tel" value="{{$carteEtudiant->tel}}">
+                            <label for="tel"> <span style="color:red;">*</span> Tel:</label>
+                            <input required="required" type="tel" class="form-control" name="tel" value="{{$carteEtudiant->tel}}">
                     </div><br>
 
                                 <div class="col-span-6 sm:col-span-3">
@@ -53,11 +54,11 @@
                             </label>
                     </div><br>
 
-                                <div class="col-span-6 sm:col-span-4">
+                                <div class="col-span-6 sm:col-span-3">
                                     <label for="fichier">
                                         <span style="color:red;">*</span> Fichier:
                                     </label>
-                                    <input type="file" name="fichier">
+                                    <input required="required" type="file" name="fichier" value="{{$carteEtudiant->fichier}}">
                                 </div><br><br>
 
                                 <div class="col-span-6 sm:col-span-3">

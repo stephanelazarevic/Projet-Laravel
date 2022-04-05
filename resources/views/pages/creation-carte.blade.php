@@ -3,6 +3,7 @@
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
                 <div class="px-4 sm:px-0">
+                    <br>
                     <h3 class="text-lg font-medium leading-6 text-gray-900">Informations personnelles</h3>
                     <p class="mt-1 text-sm text-gray-600">
 Utilisez une adresse email permanente pour recevoir vos courriels
@@ -16,35 +17,35 @@ Utilisez une adresse email permanente pour recevoir vos courriels
     <div class="px-4 py-5 bg-white sm:p-6">
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
-                <label for="nomEtudiantFormulaire">Nom étudiant:</label>
-                <input type="text" class="form-control" name="nomEtudiantFormulaire">
+                <label for="nomEtudiantFormulaire"><span style="color:red;">*</span> Nom étudiant:</label>
+                <input required="required" type="text" class="form-control" name="nomEtudiantFormulaire">
             </div>
             <div><br></div>
 
             <div class="col-span-6 sm:col-span-3">
-                <label for="prenomEtudiantFormulaire">Prénom étudiant:</label>
-                <input type="text" class="form-control" name="prenomEtudiantFormulaire">
+                <label for="prenomEtudiantFormulaire"><span style="color:red;">*</span> Prénom étudiant:</label>
+                <input required="required" type="text" class="form-control" name="prenomEtudiantFormulaire">
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" name="email">
+                <label for="email"><span style="color:red;">*</span> Email:</label>
+                <input required="required" type="text" class="form-control" name="email">
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <label for="date">Date:</label>
-                <input type="date" class="form-control" name="date">
+                <label for="date"><span style="color:red;">*</span> Date:</label>
+                <input required="required" type="date" class="form-control" name="date">
             </div>
 
             <div class="col-span-6 sm:col-span-4">
-                <label for="tel">Tel:</label>
-                <input type="tel" class="form-control" name="tel">
+                <label for="tel"><span style="color:red;">*</span> Tel:</label>
+                <input required="required" type="tel" class="form-control" name="tel">
             </div>
 
             <div class="col-span-6 sm:col-span-4">
                 <label>
-                Section:
-                <select name="section">
+                    <span style="color:red;">*</span> Section:
+                <select required="required" name="section">
                     <option value="--">--</option>
                     <option value="SLAM">SLAM</option>
                     <option value="SISR">SISR</option>
@@ -54,9 +55,9 @@ Utilisez une adresse email permanente pour recevoir vos courriels
 
             <div class="col-span-6 sm:col-span-4">
                 <label for="fichier">
-                Fichier:
+                    <span style="color:red;">*</span> Fichier:
                 </label>
-                <input type="file" name="fichier">
+                <input required="required" type="file" name="fichier">
             </div>
 
 

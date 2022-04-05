@@ -25,6 +25,7 @@
             <tbody>
 
             @foreach($cartesEtudiant as $carteEtudiant)
+
                 <tr>
                     <td class="border px-6 py-4">{{$carteEtudiant['id']}}</td>
                     <td class="border px-6 py-4">{{$carteEtudiant['nomEtudiant']}}</td>
@@ -36,10 +37,14 @@
                     <td class="border px-6 py-4">{{$carteEtudiant['fichier']}}</td>
                     <td class="border px-6 py-4">
                         <a style="color:limegreen;" href="{{action('App\Http\Controllers\CarteEncController@edit', $carteEtudiant['id'])}}">Modifier</a><br>
-                        <a style="color:#ff0000;" href="{{action('App\Http\Controllers\CarteEncController@destroy', $carteEtudiant['id'])}}">Supprimer</a>
+                        <form action="{{action('App\Http\Controllers\CarteEncController@destroy', $carteEtudiant['id'])}}" method="post">
+                            @csrf
+                            <input name="_method" type="hidden" value="DELETE">
+                            <button style="color:red;" class="btn btn-danger" type="submit">Supprimer</button>
+                        </form>
                     </td>
-
                 </tr>
+
             @endforeach
             </tbody>
         </table>

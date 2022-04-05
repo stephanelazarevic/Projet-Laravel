@@ -15,8 +15,8 @@ class CarteEncController extends Controller
      */
     public function index()
     {
-        $cartesEtudiant = CarteEtudiant::all();
-        // $cartesEtudiant = Auth::user()->carte;
+        //$cartesEtudiant = CarteEtudiant::all();
+        $cartesEtudiant = Auth::user()->carte;
         return view('pages.index', compact('cartesEtudiant'));
     }
 
@@ -66,7 +66,7 @@ class CarteEncController extends Controller
 
         // redirection vers le dashboard
 
-        return redirect('dashboard');
+        return redirect('MesDemandes');
 
     }
 
@@ -91,6 +91,7 @@ class CarteEncController extends Controller
     {
         //
         $carteEtudiant = \App\Models\CarteEtudiant::find($id);
+        //dd($carteEtudiant);
         return view('pages.edit', compact('carteEtudiant', 'id'));
     }
 
@@ -114,7 +115,7 @@ class CarteEncController extends Controller
         $carteEtudiant->fichier = $request->get('fichier');
         $carteEtudiant->save();
 
-        return redirect('demandeCarte');
+        return redirect('MesDemandes')->with('success', 'Demande de carte modifiée');
     }
 
     /**
@@ -128,6 +129,6 @@ class CarteEncController extends Controller
         //
         $carteEtudiant = \App\Models\CarteEtudiant::find($id);
         $carteEtudiant->delete();
-        return redirect('demandeCarte')->with('success', 'Demande de carte supprimée');
+        return redirect('MesDemandes')->with('success', 'Demande de carte supprimée');
     }
 }
