@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\CarteEtudiant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use function Symfony\Component\Mime\Header\get;
 
 class CarteEncController extends Controller
@@ -47,6 +48,10 @@ class CarteEncController extends Controller
 
         //dd($nomFichierAttache) ;
         $request->fichier->storeAs('public', $nomFichierAttache);
+
+        if(\App\Models\CarteEtudiant::where('email', '=', $request->get('email'))->exists()){
+            return redirect('demandeCarte/create')->with('error', 'Cette email est déjà utilisé pour une demande, veuillez en saisir un autre');
+        }
 
         /***
          * A COMPLETER POUR LE PRENOM ET L'EMAIL
@@ -104,6 +109,12 @@ class CarteEncController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+      /*  if(\App\Models\CarteEtudiant::where('email', '=', $request->get('email'))->exists()){
+            return redirect('demandeCarte/create')->with('error', 'Cette email est déjà utilisé pour une demande, veuillez en saisir un autre');
+        }
+      */
+
         //
         $carteEtudiant = \App\Models\CarteEtudiant::find($id);
         $carteEtudiant->nomEtudiant = $request->get('nomEtudiant');

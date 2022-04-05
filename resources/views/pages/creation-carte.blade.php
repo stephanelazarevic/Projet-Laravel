@@ -10,11 +10,20 @@ Utilisez une adresse email permanente pour recevoir vos courriels
 </p>
                 </div>
             </div>
+
             <div class="mt-2 md:mt-0 md:col-span-2">
                 <form method="post" action="{{url('demandeCarte')}}" enctype="multipart/form-data">
 @csrf
+
 <div class="shadow overflow-hidden sm:rounded-md">
     <div class="px-4 py-5 bg-white sm:p-6">
+
+        @if (\Session::has('error'))
+            <div class="alert alert-danger">
+                <p style="color:red;"><br>{{ \Session::get('error') }}</p>
+            </div><br><br>
+        @endif
+
         <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
                 <label for="nomEtudiantFormulaire"><span style="color:red;">*</span> Nom étudiant:</label>

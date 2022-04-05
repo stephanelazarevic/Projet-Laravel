@@ -16,8 +16,14 @@
                     <input name="_method" type="hidden" value="PATCH">
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <div class="grid grid-cols-6 gap-6">
 
+                           <!-- @if (\Session::has('error'))
+                                <div class="alert alert-danger">
+                                    <p style="color:red;"><br>{{ \Session::get('error') }}</p>
+                                </div><br><br>
+                            @endif -->
+
+                            <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">
                             <label for="nomEtudiant"> <span style="color:red;">*</span> Nom étudiant:</label>
                             <input required="required" type="text" class="form-control" name="nomEtudiant" value="{{$carteEtudiant->nomEtudiant}}">
