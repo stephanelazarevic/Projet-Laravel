@@ -17,11 +17,11 @@
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
 
-                           <!-- @if (\Session::has('error'))
+                            @if (\Session::has('error'))
                                 <div class="alert alert-danger">
                                     <p style="color:red;"><br>{{ \Session::get('error') }}</p>
                                 </div><br><br>
-                            @endif -->
+                            @endif
 
                             <div class="grid grid-cols-6 gap-6">
                                 <div class="col-span-6 sm:col-span-3">

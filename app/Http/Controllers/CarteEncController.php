@@ -109,11 +109,13 @@ class CarteEncController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-      /*  if(\App\Models\CarteEtudiant::where('email', '=', $request->get('email'))->exists()){
-            return redirect('demandeCarte/create')->with('error', 'Cette email est déjà utilisé pour une demande, veuillez en saisir un autre');
+        $carteEtudiant = \App\Models\CarteEtudiant::find($id);
+        if ($carteEtudiant->email != $request->get('email')) {
+            if (\App\Models\CarteEtudiant::where('email', '=', $request->get('email'))->exists()) {
+                return redirect('MesDemandes/' . $id . '/edit')->with('error', 'Cette email est déjà utilisé pour une demande, veuillez en saisir un autre');
+            }
         }
-      */
+
 
         //
         $carteEtudiant = \App\Models\CarteEtudiant::find($id);
