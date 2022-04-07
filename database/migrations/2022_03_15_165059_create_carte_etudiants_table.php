@@ -22,7 +22,7 @@ class CreateCarteEtudiantsTable extends Migration
             $table->date('date');
             $table->integer('tel');
             $table->string('section');
-            $table->string('fichier')->unique();
+            $table->string('fichier');
             $table->timestamps();
         });
     }
